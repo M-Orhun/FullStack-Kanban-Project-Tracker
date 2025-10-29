@@ -1,4 +1,4 @@
-# 🚀 Full-Stack Kanban Project Tracker: [Proje Adı Ekle]
+# 🚀 Full-Stack Kanban Project Tracker:
 
 ## Project Overview
 
