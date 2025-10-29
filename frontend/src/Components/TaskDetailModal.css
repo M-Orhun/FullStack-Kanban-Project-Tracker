@@ -1,0 +1,153 @@
+/* Modal Arka Planı (Overlay) */
+.modal-overlay {
+  position: fixed; /* Sayfayı kaplasın */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Yarı saydam siyah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Diğer her şeyin üzerinde olsun */
+  animation: fadeInModal 0.3s ease-out; /* Giriş animasyonu */
+}
+
+/* Modal İçeriği */
+.modal-content {
+  background-color: #3a3f4a; /* Sütunlarla aynı renk */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  min-width: 400px; /* Minimum genişlik */
+  max-width: 600px; /* Maksimum genişlik */
+  color: white; /* Yazı rengi */
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #61dafb; /* Başlık rengi */
+  border-bottom: 1px solid #61dafb;
+  padding-bottom: 10px;
+}
+
+.modal-content p {
+  line-height: 1.6;
+}
+
+/* Düzenleme modundaki input ve textarea */
+.modal-input {
+  width: 95%; /* Kenarlarda biraz boşluk kalsın */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  background-color: #4f5562; /* Kartlarla benzer */
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: inherit; /* Ana fontu kullansın */
+}
+
+.title-input {
+  font-size: 24px; /* Başlık gibi görünsün */
+  font-weight: bold;
+  border-bottom: 1px solid #61dafb; /* Başlık alt çizgisi */
+  /* Input olduğu için normal border'ı kaldıralım */
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent; /* Arka planı olmasın */
+  outline: none; /* Tıklanınca çerçeve çıkmasın */
+}
+
+.description-textarea {
+  min-height: 100px; /* En az 3-4 satır */
+  resize: vertical; /* Sadece dikeyde boyutlandırılsın */
+}
+
+/* ---- YENİ EKLENEN TARİH SEÇİCİ STİLLERİ ---- */
+.modal-date-picker {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center; /* Label ve inputu aynı hizaya getir */
+  gap: 10px; /* Aralarında boşluk bırak */
+}
+
+.modal-date-picker label {
+  font-weight: bold;
+  color: #ccc;
+  white-space: nowrap; /* "Bitiş Tarihi:" yazısı tek satırda kalsın */
+}
+
+.modal-date-picker .date-input {
+  flex-grow: 1; /* Input kalan alanı kaplasın */
+  /* modal-input zaten padding, border vs içeriyor */
+  padding: 8px 10px; /* Tarih inputu için biraz daha az padding */
+  font-size: 15px;
+}
+
+/* Input'un varsayılan ok ve takvim ikonlarını özelleştirmek istersen: */
+/*
+.modal-date-picker .date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1); // Beyaz ikon
+  cursor: pointer;
+}
+*/
+
+/* ---- MODAL BUTONLARI (TEMİZ VE YAN YANA HALİ) ---- */
+
+/* Butonları içeren ana container */
+.modal-buttons {
+  display: flex;          /* Butonları yan yana getirir */
+  justify-content: flex-end; /* Butonları sağa yaslar */
+  align-items: center;    /* Butonları dikeyde ortalar */
+  gap: 10px;              /* Butonlar arası boşluk */
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #555; /* Üst çizgi */
+}
+
+/* Butonların her biri için ortak stiller */
+.modal-buttons button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;   /* İç boşluk (Yüksekliği belirler) */
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 90px;    /* En az bu genişlikte olsun */
+  /* height: 40px; */ /* Yüksekliği padding belirlesin */
+  text-align: center;
+  line-height: 1.5;   /* Yazıyı dikeyde ortalamaya yardımcı olur */
+}
+
+/* Farklı buton renkleri */
+.close-button, .cancel-button {
+  background-color: #777;
+  color: white;
+}
+.close-button:hover, .cancel-button:hover {
+  background-color: #666;
+}
+
+.edit-button {
+  background-color: #f0ad4e; /* Turuncu */
+  color: white;
+}
+.edit-button:hover {
+  background-color: #ec971f;
+}
+
+.save-button {
+  background-color: #5cb85c; /* Yeşil */
+  color: white;
+}
+.save-button:hover {
+  background-color: #4cae4c;
+}
+
+/* Modal giriş animasyonu */
+@keyframes fadeInModal {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
